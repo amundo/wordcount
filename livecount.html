@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>
+</title>
+
+<style type="text/css" media="screen" >
+body {
+	margin:0;
+	padding:2em;
+}
+
+textarea { 
+	margin:0;
+	padding:4px;
+	font-family:sans-serif;
+	min-height: 400px;
+ 	width: 80%;
+	margin: 0 auto;
+ 	display: block;
+}
+</style>
+
+<script text="text/javascript" src="jquery.js"></script>
+
+<script text="text/javascript">
+
+function tokenize(text) { return text.split(/\s+/) }
+function countWords(text) { return tokenize(text).length }
+
+
+$(function(){
+    console.log('hello');
+
+  $('textarea').keyup(function(){
+    var text = $(this).attr('value');
+   
+    $('h1').text(countWords(text));
+  })
+
+})
+</script>
+
+</head>
+<body>
+<h1>0</h1>
+<textarea>
+
+</textarea>
+</body>
+
+</html>
+

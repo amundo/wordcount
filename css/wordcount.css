@@ -1,0 +1,36 @@
+#wordcount textarea#text, #wordcount table { 
+  width: 90%; 
+  margin: 1em auto; 
+}
+
+#wordcount textarea#text {
+  font-family: Gentium;
+  height: 100px; 
+  overflow: hidden;
+}
+
+#wordcount table { 
+  border: 1px solid black;
+  font-family: Gentium;
+  height: 100px; 
+  overflow: hidden;
+}
+
+#wordcount table thead tr:hover { 
+  cursor: pointer; 
+}
+
+#wordcount table tbody tr:hover { 
+  background: yellow;
+  cursor: pointer; 
+}
+
+table thead { 
+  background: #cecece;
+  color: black;
+}
+
+table thead { 
+  background: skyblue;
+}
+

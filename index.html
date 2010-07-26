@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>wordcount</title>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/jquery.autogrow.js"></script>
+  <script type="text/javascript" src="js/jquery.ba-attached.js"></script>
+  <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
+  <script type="text/javascript" src="js/table2CSV.js"></script>
+  <script type="text/javascript" src="js/wordcount.js"></script>
+  <meta charset="UTF-8">
+<link type="text/css" href="css/wordcount.css" rel="stylesheet" />
+<style type="text/css">
+
+</style>
+<script>
+</script>
+</head>
+<body id="wordcount">
+<ul>
+<li><button id="calculate" >calculate</button></li>
+<li><button id="clear" >clear counts</button></li>
+<li><button id="export" >export CSV</button></li>
+<textarea id="text" >
+
+</textarea>
+
+<div id="countbox">
+<table id="count" >
+ <thead>
+   <tr><th>count</th><th>word</th><th>reversed</th></tr>
+ </thead>
+ <tbody>
+ </tbody>
+
+</table>
+</div><!-- #countbox -->
+
+</body>
+
+</html>
+
