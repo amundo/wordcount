@@ -4,34 +4,24 @@
 
   $.fn.numwords = function(){
   
-/*
-    var defaults = {
-      //target: $(this).before($('<span id="numwords"/>'))
-      target: $('h1')
-    };
-  
-    var options = $.extend(defaults, options);
-
-*/
-  
     return this.each(function(){
-      $this = $(this);
-      var count = $.fn.numwords.tokenize($this.val());
-      $this.bind('keyup, change', function(){
-        $('h1').html(count);
-      })
-    })
+      var count = $.fn.numwords.countwords($(this).val())
 
+      $(this).bind('keyup change', function(){
+        $('h1').html(count);
+      });
+
+    });
   };
   
   $.fn.numwords.tokenize = function(text){
     var text = $.trim(text);
-    return text.split(/\s+/)
-  }
+    return text.split(/\s+/);
+  };
   
-  $.fn.numwords = function countWords(text) { 
-    return $.fn.numwords.tokenize(text).length 
-  }
+  $.fn.numwords.countwords = function(text) { 
+    return $.fn.numwords.tokenize(text).length ;
+  };
 
 })(jQuery)
 
