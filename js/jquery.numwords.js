@@ -2,13 +2,14 @@
 // usage: $('textarea#foo').numwords() => 10 @@TODO more docs
 (function($) {
 
-  $.fn.numwords = function(){
+  $.fn.numwords = function(options){
+
+   var options = $.extend($.fn.numwords.defaults, options);
   
     return this.each(function(){
-      var count = $.fn.numwords.countwords($(this).val())
-
-      $(this).bind('keyup change', function(){
-        $('h1').html(count);
+      $(this).bind('change keyup', function(){
+        var count = $.fn.numwords.countwords($(this).val());
+        $(options.target).html(count);
       });
 
     });
@@ -22,6 +23,11 @@
   $.fn.numwords.countwords = function(text) { 
     return $.fn.numwords.tokenize(text).length ;
   };
+
+  $.fn.numwords.defaults = {
+     target: 'h1'
+   };
+
 
 })(jQuery)
 

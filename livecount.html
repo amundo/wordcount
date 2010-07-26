@@ -29,29 +29,16 @@ textarea {
 
 $(function(){
  
-  $('textarea').numwords();
+  $('textarea').numwords({target: 'h2'});
 
 })
 
-/*
-function tokenize(text) { return text.split(/\s+/) }
-function countWords(text) { return tokenize(text).length }
-
-$(function(){
-
-  $('textarea').bind('change, keyup', function(){
-    var text = $(this).attr('value');
-   
-    $('h1').text(countWords(text));
-  })
-
-})
-*/
 </script>
 
 </head>
 <body>
 <h1>0</h1>
+<h2>0</h2>
 <textarea></textarea>
 </body>
 
