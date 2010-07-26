@@ -22,32 +22,35 @@ textarea {
 }
 </style>
 
-<script text="text/javascript" src="jquery.js"></script>
+<script text="text/javascript" src="js/jquery.js"></script>
+<script text="text/javascript" src="js/jquery.numwords.js"></script>
 
 <script text="text/javascript">
 
+$(function(){
+  $('textarea').numwords();
+}})
+
+/*
 function tokenize(text) { return text.split(/\s+/) }
 function countWords(text) { return tokenize(text).length }
 
-
 $(function(){
-    console.log('hello');
 
-  $('textarea').keyup(function(){
+  $('textarea').bind('change, keyup', function(){
     var text = $(this).attr('value');
    
     $('h1').text(countWords(text));
   })
 
 })
+*/
 </script>
 
 </head>
 <body>
 <h1>0</h1>
-<textarea>
-
-</textarea>
+<textarea></textarea>
 </body>
 
 </html>
