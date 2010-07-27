@@ -32,8 +32,21 @@ function render_count_table(table, targetSelector){
   })
 }
 
+function normalToRegExpNotation(pattern){
+  /* convert things like t- or -t to something like t$ or ^t */
+  if(pattern.endswith('-')){
+    pattern = pattern.replace(/-$/,'');
+    return '^' + pattern;
+  }
+  if(pattern.startswith('-')){
+    pattern = pattern.replace(/^-/,'');
+    return pattern + '$' ;
+  }
+}
+
 function filterWordsByPattern(words, pattern){
   var selected = [];
+  var pattern = normalToRegExpNotation(pattern);
   var pattern = new RegExp(pattern);
 
   $.each(words, function(i, w){
