@@ -38,6 +38,7 @@ function normalToRegExpNotation(pattern){
     pattern = pattern.replace(/^-/,'');
     return pattern + '$' ;
   }
+  return pattern;
 }
 
 function filterWordsByPattern(words, pattern){
@@ -60,7 +61,7 @@ $(function(){
 
 
   function clearTable(targetSelector){
-    $(targetSelector + ' tbody').html('');
+    $(targetSelector + ' tbody tr').remove();
   }
 
   $('button#calculate').click(function(){
@@ -76,7 +77,10 @@ $(function(){
     var targetSelector = '#count';
     clearTable(targetSelector);
     render_count_table(word_freq, targetSelector );
-    $(targetSelector).tablesorter();
+
+    $(targetSelector).tablesorter({
+//      sortList: [0,1]
+    });
 
   })
 

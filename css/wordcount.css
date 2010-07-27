@@ -20,7 +20,7 @@ h1 {
 #wordcount textarea#text {
   font-family: Gentium;
   height: 100px; 
-  overflow: hidden;
+  overflow: auto;
 }
 
 #wordcount table { 
