@@ -1,3 +1,15 @@
+body { 
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: white;
+  text-align:center;
+  text-shadow: -0.1em 0.1em 2px #333;
+}
+
 #wordcount textarea#text, #wordcount table { 
   width: 90%; 
   padding: 4px;
@@ -39,4 +51,24 @@ table thead {
 
 span#pattern {
   float:right; 
+}
+
+ul#commands {
+  display: inline;
+}
+
+ul#commands li {
+  display: inline;
+}
+
+div#paste {
+  border-bottom: 1px solid black;
+  overflow: auto;
+  margin: 0;
+  padding: 1em;
+  background: skyblue;
+}
+
+#countbox { 
+  padding: 1em;
 }

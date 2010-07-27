@@ -23,15 +23,20 @@ $(function(){
 </script>
 </head>
 <body id="wordcount">
-<ul id="commands">
-<li><button id="calculate" >calculate</button></li>
-<li><button id="clear" >clear counts</button></li>
-<li><button id="export" >export CSV</button></li>
-</ul>
+<div id="paste">
+<h1>AMAZING WORD COUNTER!!!</h1>
+<h3>Paste some text here:</h3>
 <textarea id="text" ></textarea>
-<h2>Total word count: <span id="numwords">0</span> <span id="pattern">pattern: <input type="text"/></span></h2>
+<ul id="commands">
+  <li><button id="calculate" >calculate</button></li>
+  <li><button id="clear" >clear counts</button></li>
+  <li><button id="export" >export CSV</button></li>
+</ul>
+
+</div>
 
 <div id="countbox">
+<h2>Total word count: <span id="numwords">0</span> <span id="pattern">pattern: <input type="text"/></span></h2>
 <table id="count" >
  <thead>
    <tr><th>count</th><th>word</th><th>reversed</th></tr>
