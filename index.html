@@ -8,12 +8,18 @@
   <script type="text/javascript" src="js/jquery.tablesorter.min.js"></script>
   <script type="text/javascript" src="js/table2CSV.js"></script>
   <script type="text/javascript" src="js/wordcount.js"></script>
+  <script type="text/javascript" src="js/jquery.numwords.js"></script>
   <meta charset="UTF-8">
 <link type="text/css" href="css/wordcount.css" rel="stylesheet" />
 <style type="text/css">
 
 </style>
 <script>
+$(function(){
+
+  $('textarea#text').numwords({target: 'span#numwords'})
+
+});
 </script>
 </head>
 <body id="wordcount">
@@ -21,9 +27,8 @@
 <li><button id="calculate" >calculate</button></li>
 <li><button id="clear" >clear counts</button></li>
 <li><button id="export" >export CSV</button></li>
-<textarea id="text" >
-
-</textarea>
+<textarea id="text" ></textarea>
+<h2>Total word count: <span id="numwords">0</span> </h2>
 
 <div id="countbox">
 <table id="count" >
