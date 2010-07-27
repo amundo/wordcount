@@ -21,13 +21,9 @@ function count_words(words){
   return count;
 }
 
-function reverse_word(word){
-    return word.split('').reverse().join("");
-}
-
 function render_count_table(table, targetSelector){
   $.each(table, function(wd,fq){
-    $('<tr><td>' + fq + '</td><td>' + wd + '</td><td>' + reverse_word(wd) + '</td></tr>')
+    $('<tr><td>' + fq + '</td><td>' + wd +  '</td></tr>')
      .appendTo($(targetSelector).find('tbody'))
   })
 }
