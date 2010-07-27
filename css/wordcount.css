@@ -1,5 +1,7 @@
 #wordcount textarea#text, #wordcount table { 
   width: 90%; 
+  padding: 4px;
+  font-size: small;
   margin: 1em auto; 
 }
 
@@ -35,3 +37,6 @@ table thead {
 }
 
 
+span#pattern {
+  float:right; 
+}

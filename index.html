@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>wordcount</title>
+  <meta charset="UTF-8">
   <script type="text/javascript" src="js/jquery.js"></script>
   <script type="text/javascript" src="js/jquery.autogrow.js"></script>
   <script type="text/javascript" src="js/jquery.ba-attached.js"></script>
@@ -9,7 +10,6 @@
   <script type="text/javascript" src="js/table2CSV.js"></script>
   <script type="text/javascript" src="js/wordcount.js"></script>
   <script type="text/javascript" src="js/jquery.numwords.js"></script>
-  <meta charset="UTF-8">
 <link type="text/css" href="css/wordcount.css" rel="stylesheet" />
 <style type="text/css">
 
@@ -23,12 +23,13 @@ $(function(){
 </script>
 </head>
 <body id="wordcount">
-<ul>
+<ul id="commands">
 <li><button id="calculate" >calculate</button></li>
 <li><button id="clear" >clear counts</button></li>
 <li><button id="export" >export CSV</button></li>
+</ul>
 <textarea id="text" ></textarea>
-<h2>Total word count: <span id="numwords">0</span> </h2>
+<h2>Total word count: <span id="numwords">0</span> <span id="pattern">pattern: <input type="text"/></span></h2>
 
 <div id="countbox">
 <table id="count" >
