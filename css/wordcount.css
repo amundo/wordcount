@@ -49,12 +49,12 @@ table thead {
 }
 
 
-span#pattern {
-  float:right; 
+ul#commands {
+  clear:both;
 }
 
-ul#commands {
-  display: inline;
+input#pattern { 
+  font-size: x-large;
 }
 
 ul#commands li {
@@ -71,4 +71,8 @@ div#paste {
 
 #countbox { 
   padding: 1em;
+}
+
+button#calculate { 
+  font-size: x-large;
 }
