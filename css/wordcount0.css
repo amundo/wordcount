@@ -5,14 +5,12 @@ body {
 }
 
 h1 {
-  margin: 0;
-  padding: 4px;
   color: white;
   text-align:center;
   text-shadow: -0.1em 0.1em 2px #333;
 }
 
-#wordcount textarea#text { 
+#wordcount textarea#text, #wordcount table { 
   width: 90%; 
   padding: 4px;
   font-size: small;
@@ -51,39 +49,28 @@ table thead {
 }
 
 
-div#commands {
-  overflow:auto;
-}
-
-ul#options { 
-  text-align:right;
-  list-style-type: none;
+ul#commands {
+  clear:both;
 }
 
 input#pattern { 
   font-size: x-large;
 }
 
-div#header {
-  background: skyblue;
-  border-bottom: 1px solid black;
-  margin:0;
-  padding:0;
-
+ul#commands li {
+  display: inline;
 }
+
 div#paste {
+  border-bottom: 1px solid black;
   overflow: auto;
   margin: 0;
-  width: 55%;
-  float:left;
-  overflow: auto;
   padding: 1em;
   background: skyblue;
 }
 
 #countbox { 
   padding: 1em;
-  overflow:auto;
 }
 
 button#calculate { 

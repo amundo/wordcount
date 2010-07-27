@@ -11,7 +11,7 @@
   <script type="text/javascript" src="js/utils.js"></script>
   <script type="text/javascript" src="js/wordcount.js"></script>
   <script type="text/javascript" src="js/jquery.numwords.js"></script>
-<link type="text/css" href="css/wordcount.css" rel="stylesheet" />
+<link type="text/css" href="css/wordcount2.css" rel="stylesheet" />
 <style type="text/css">
 
 </style>
@@ -24,21 +24,27 @@ $(function(){
 </script>
 </head>
 <body id="wordcount">
+
+<div id="header">
+<h1>AMAZING WORD COUNTER!!!</h1>
+</div>
 <div id="paste">
-<h1>AMAZING<sub>1</sub> WORD<sub>2</sub> COUNTER<sub>3</sub>!!!</h1>
 <h3>Paste some text here:</h3>
 <textarea id="text" ></textarea>
-<ul id="commands">
-  <li>pattern: <input id="pattern" type="text"/></li>
-  <li><button id="calculate" >calculate word frequencies</button></li>
-  <li><button id="clear" >clear counts</button></li>
-  <li><button id="export" >export CSV</button></li>
-</ul>
-
 </div>
 
 <div id="countbox">
+<ul id="options">
+  <li><button id="clear" >clear counts</button></li>
+  <li><button id="export" >export CSV</button></li>
+</ul>
 <h2>Total word count: <span id="numwords">0</span> </h2>
+<div id="commands">
+  <p><label for="">optional pattern (prefixes like <em>æŋ-</em> and suffixes like <em>-lar</em> work):</label></p> 
+  <p><input id="pattern" type="text"/></p>
+  <p><button id="calculate" >calculate word frequencies</button></p>
+</div>
+
 <table id="count" >
  <thead>
    <tr><th>count</th><th>word</th></tr>

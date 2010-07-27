@@ -28,7 +28,7 @@ function render_count_table(table, targetSelector){
   })
 }
 
-function normalToRegExpNotation(pattern){
+function convert_affix_notation(pattern){
   /* convert things like t- or -t to something like t$ or ^t */
   if(pattern.endswith('-')){
     pattern = pattern.replace(/-$/,'');
@@ -43,7 +43,7 @@ function normalToRegExpNotation(pattern){
 
 function filterWordsByPattern(words, pattern){
   var selected = [];
-  var pattern = normalToRegExpNotation(pattern);
+  var pattern = convert_affix_notation(pattern);
   var pattern = new RegExp(pattern);
 
   $.each(words, function(i, w){
@@ -57,7 +57,7 @@ function filterWordsByPattern(words, pattern){
 
 $(function(){
 
-  //$('#text').autogrow();
+  $('#text').autogrow();
 
 
   function clearTable(targetSelector){
@@ -79,7 +79,7 @@ $(function(){
     render_count_table(word_freq, targetSelector );
 
     $(targetSelector).tablesorter({
-//      sortList: [0,1]
+      sortList: [[0,1], [1,0]]
     });
 
   })
