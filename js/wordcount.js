@@ -32,21 +32,40 @@ function render_count_table(table, targetSelector){
   })
 }
 
+function filterWordsByPattern(words, pattern){
+  var selected = [];
+  var pattern = new RegExp(pattern);
+
+  $.each(words, function(i, w){
+    if(w.match(pattern)){
+      selected.push(w)
+    }
+  })
+
+  return selected;
+}
+
 $(function(){
 
   //$('#text').autogrow();
 
-  $.tablesorter.defaults.sortList = [[0,0]]; 
 
   function clearTable(targetSelector){
-    $(targetSelector).find('tbody').html('');
+    $(targetSelector + ' tbody').html('');
   }
 
   $('button#calculate').click(function(){
     var words = [];
     var words = tokenize($('#text').val()); 
+
+    var pattern = $('#pattern').val();
+    if(pattern.length > 0){
+      words = filterWordsByPattern(words, pattern)
+    }
+
     var word_freq = count_words(words);  
     var targetSelector = '#count';
+    clearTable(targetSelector);
     render_count_table(word_freq, targetSelector );
     $(targetSelector).tablesorter();
 
