@@ -1,0 +1,29 @@
+body { 
+  background: #cecece;
+}
+
+#text { 
+  width: 60%;
+  background: #fff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 1px solid black;
+  margin: 1em;
+  padding: 1em;
+  float:left;
+}
+
+#counts { 
+  float:right;
+  width: 30%;
+ 
+}
+
+#wrapper { 
+  overflow: hidden;
+}  
+
+header { 
+  overflow: hidden;
+}  
+
