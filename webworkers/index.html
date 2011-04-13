@@ -10,22 +10,22 @@
 
   <link rel=stylesheet href="style.css" media=screen />
 
-<style>
-</style>
-
 <script>
 $(document).ready(function(){
 
   function crunch() {
-    worker.postMessage( $('#text').html().split(' ') );
+    worker.postMessage( $('#text').html().split(/[\n ]+/) );
   }
 
   $('#crunch').click(crunch, function(wtf){ console.log(wtf) } );
 
-  var worker = new Worker('doWork2.js');
+  var worker = new Worker('counter.js');
 
   worker.addEventListener('message', function(e) {
-    $('#counts').html( JSON.stringify(e.data ), null, 2 ) ;
+    $.each(e.data, function(word, count){
+      $('#counts tbody').append('<tr><td>'+count+'</td><td>'+word+'</td></tr>');
+    });
+    //$('#counts').html( JSON.stringify(e.data ), null, 2 ) ;
   }, false);
 
 })
@@ -37,9 +37,6 @@ $(document).ready(function(){
 
 <header>
 <button id=crunch>count words</button>
-
-<!-- button onclick="unknownCmd()"></button -->
-<!-- button onclick="stop()">Stop worker</button -->
 
 <output id="result"></output>
 
@@ -58,9 +55,10 @@ Tasmātiha bhikkhave evaṃ sikkhitabbaṃ: "saddhābalena samannāgatā bhaviss
 (Sekhabalavitthatasuttaṃ)
 
 </div>
-<pre id=counts></pre>
-<table id=xcounts>
+<pre id=xcounts></pre>
+<table id=counts>
 <thead><tr><th>count</th><th>word</th></tr><thead>
+<tbody><tbody>
 </table>
 </div><!-- #wrapper -->
 
