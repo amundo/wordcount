@@ -13,25 +13,26 @@
 <script>
 $(document).ready(function(){
 
-  function crunch() {
-    worker.postMessage( );
+  $('#crunch').click(calculate);
+
+  function calculate(){
+
+    $('.text').each(function(){
+
+      var words = $.trim( $(this).html() ).split(/[\n ]+/) ;
+
+      var worker = new Worker('counter.js');
+
+      worker.postMessage( words );
+
+      worker.addEventListener('message', function(e) {
+        $.each(e.data, function(word, count){
+          $('#counts tbody').prepend('<tr><td>'+count+'</td><td>'+word+' '+new Date().getMilliseconds()+ '</td></tr>');
+        });
+      }, false);
+
+    })
   }
-
-  $('#crunch').click(crunch);
-
-  $('.text').each(function(){
-
-    var words = $(this).html().split(/[\n ]+/) ;
-
-    var worker = new Worker('counter.js');
-
-    worker.addEventListener('message', function(e) {
-      $.each(e.data, function(word, count){
-        $('#counts tbody').append('<tr><td>'+count+'</td><td>'+word+'</td></tr>');
-      });
-
-    }, false);
-  })
 
 })
 </script>
@@ -48,18 +49,13 @@ $(document).ready(function(){
 </header>
 
 <div id=wrapper>
-<div class=text>
-1. Evaṃ me sutaṃ: ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tatra kho bhagavā bhikkhu āmantesi:
-Bhikkhavoti. Bhadanteti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca:
-</div>
-<div class=text>
-Pañcimāni bhikkhave sekhabalāni. Katamāni pañca: saddhābalaṃ hiribalaṃ1 ottappabalaṃ viriyabalaṃ 2: paññābalaṃ. Imāni kho bhikkhave pañcasekhabalāni.
-Tasmātiha bhikkhave evaṃ sikkhitabbaṃ: "saddhābalena samannāgatā bhavissāma sekhabalena, hiribalena samannāgatā bhavissāma sekhabalena, ottappabalena samannāgatā bhavissāma sekhabalena, viriyabalena samannāgatā bhavissāma sekhabalena, paññābalena samannāgatā bhavissāma sekhabalenā"ti. Evaṃhi vo bhikkhave sikkhitabbanti. *
-</div>
-<table id=counts>
-<thead><tr><th>count</th><th>word</th></tr><thead>
-<tbody><tbody>
-</table>
+  <div id=alpha class=text>sheep hippo panda panda</div>
+  <div id=beta class=text>hippo panda</div>
+  <div id=gamma class=text>rhino rhino rhino panda</div>
+  <table id=counts>
+  <thead><tr><th>count</th><th>word</th></tr><thead>
+  <tbody><tbody>
+  </table>
 </div><!-- #wrapper -->
 
 </body>
