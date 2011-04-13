@@ -10,32 +10,7 @@
 
   <link rel=stylesheet href="style.css" media=screen />
 
-<script>
-$(document).ready(function(){
-
-  $('#crunch').click(calculate);
-
-  function calculate(){
-
-    $('.text').each(function(){
-
-      var words = $.trim( $(this).html() ).split(/[\n ]+/) ;
-
-      var worker = new Worker('counter.js');
-
-      worker.postMessage( words );
-
-      worker.addEventListener('message', function(e) {
-        $.each(e.data, function(word, count){
-          $('#counts tbody').prepend('<tr><td>'+count+'</td><td>'+word+' '+new Date().getMilliseconds()+ '</td></tr>');
-        });
-      }, false);
-
-    })
-  }
-
-})
-</script>
+<script src=master.js></script>
 
 </head>
 
@@ -49,13 +24,19 @@ $(document).ready(function(){
 </header>
 
 <div id=wrapper>
-  <div id=alpha class=text>sheep hippo panda panda</div>
-  <div id=beta class=text>hippo panda</div>
-  <div id=gamma class=text>rhino rhino rhino panda</div>
+  <div id=alpha class=text>frog frog fish</div>
+  <div id=beta class=text>dog duck duck duck</div>
+  <div id=gamma class=text>rhino rhino rhino reptile</div>
+  <div id=delta class=text>albatross</div>
+
   <table id=counts>
-  <thead><tr><th>count</th><th>word</th></tr><thead>
-  <tbody><tbody>
+    <thead>
+      <tr><th>count</th><th>word</th></tr>
+    </thead>
+    <tbody>
+    </tbody>
   </table>
+
 </div><!-- #wrapper -->
 
 </body>
