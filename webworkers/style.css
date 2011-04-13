@@ -2,7 +2,7 @@ body {
   background: #cecece;
 }
 
-#text { 
+.text { 
   width: 60%;
   background: #fff;
   -moz-border-radius: 10px;

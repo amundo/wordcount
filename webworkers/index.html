@@ -14,19 +14,24 @@
 $(document).ready(function(){
 
   function crunch() {
-    worker.postMessage( $('#text').html().split(/[\n ]+/) );
+    worker.postMessage( );
   }
 
-  $('#crunch').click(crunch, function(wtf){ console.log(wtf) } );
+  $('#crunch').click(crunch);
 
-  var worker = new Worker('counter.js');
+  $('.text').each(function(){
 
-  worker.addEventListener('message', function(e) {
-    $.each(e.data, function(word, count){
-      $('#counts tbody').append('<tr><td>'+count+'</td><td>'+word+'</td></tr>');
-    });
-    //$('#counts').html( JSON.stringify(e.data ), null, 2 ) ;
-  }, false);
+    var words = $(this).html().split(/[\n ]+/) ;
+
+    var worker = new Worker('counter.js');
+
+    worker.addEventListener('message', function(e) {
+      $.each(e.data, function(word, count){
+        $('#counts tbody').append('<tr><td>'+count+'</td><td>'+word+'</td></tr>');
+      });
+
+    }, false);
+  })
 
 })
 </script>
@@ -43,19 +48,14 @@ $(document).ready(function(){
 </header>
 
 <div id=wrapper>
-<div id=text>
-
- 
+<div class=text>
 1. Evaṃ me sutaṃ: ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme. Tatra kho bhagavā bhikkhu āmantesi:
 Bhikkhavoti. Bhadanteti te bhikkhū bhagavato paccassosuṃ. Bhagavā etadavoca:
+</div>
+<div class=text>
 Pañcimāni bhikkhave sekhabalāni. Katamāni pañca: saddhābalaṃ hiribalaṃ1 ottappabalaṃ viriyabalaṃ 2: paññābalaṃ. Imāni kho bhikkhave pañcasekhabalāni.
 Tasmātiha bhikkhave evaṃ sikkhitabbaṃ: "saddhābalena samannāgatā bhavissāma sekhabalena, hiribalena samannāgatā bhavissāma sekhabalena, ottappabalena samannāgatā bhavissāma sekhabalena, viriyabalena samannāgatā bhavissāma sekhabalena, paññābalena samannāgatā bhavissāma sekhabalenā"ti. Evaṃhi vo bhikkhave sikkhitabbanti. *
- 
-5. 1. 1. 2
-(Sekhabalavitthatasuttaṃ)
-
 </div>
-<pre id=xcounts></pre>
 <table id=counts>
 <thead><tr><th>count</th><th>word</th></tr><thead>
 <tbody><tbody>
