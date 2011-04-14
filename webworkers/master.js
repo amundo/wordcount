@@ -1,8 +1,16 @@
 $(document).ready(function(){
 
-  $('#crunch').click(calculate);
+  function render(counts){
+    $('#counts tbody').empty();
+    for(var word in counts){ 
+      $('#counts tbody').append('<tr><td>'+counts[word]+'</td><td>' + word + '</td></tr>');
+    }
+  }
+
+  var total = {};
 
   function calculate(){
+
 
     $('.text').each(function(i){
 
@@ -14,11 +22,21 @@ $(document).ready(function(){
 
       worker.addEventListener('message', function(e) {
         $.each(e.data, function(word, count){
-          $('#counts tbody').append('<tr><td>'+i+': '+count+'</td><td>' + word + '</td></tr>');
+          if( total[word] === undefined ){ 
+            total[word]  = count ;
+          } else { 
+            total[word] += count ; 
+          } 
         });
       }, false);
 
-    })
+    });
+
+    render(total);
   }
 
-})
+  $('#crunch').click(calculate);
+
+});
+
+
