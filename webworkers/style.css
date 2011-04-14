@@ -27,3 +27,30 @@ header {
   overflow: hidden;
 }  
 
+#counts { 
+  background: #fff;
+}
+
+th{ 
+  border-bottom: 1px solid black;
+}
+th.wordCount, td.wordCount{ 
+  text-align:right;
+  width: 5em;
+  margin: 0;
+}
+td, th { 
+  padding: 4px;
+}
+
+th.countedWord, td.countedWord{ 
+  border-left: 1px solid #cecece; 
+}
+
+#text2 { 
+  display:none;
+}
+#text, #text2 { 
+  width: 50%; 
+  float:left;
+}
