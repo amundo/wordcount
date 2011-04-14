@@ -16,11 +16,11 @@ $(document).ready(function(){
 
       var words = $.trim( $(this).html() ).split(/[\n ]+/) ;
 
-      var worker = new Worker('counter.js');
+      var countingWorker = new Worker('counter.js');
 
-      worker.postMessage( JSON.stringify(words) );
+      countingWorker.postMessage( JSON.stringify(words) );
 
-      worker.addEventListener('message', function(e) {
+      countingWorker.addEventListener('message', function(e) {
         $.each(e.data, function(word, count){
           if( total[word] === undefined ){ 
             total[word]  = count ;

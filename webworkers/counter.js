@@ -13,8 +13,8 @@ function count(sequence){
   return fq;
 }
 
-onmessage = function(e){
 
+this.addEventListener('message', function(e) {
   var data = JSON.parse(e.data),
       tally = count(data);
 
@@ -22,4 +22,4 @@ onmessage = function(e){
 
   self.close(); 
 
-}
+}, false)
